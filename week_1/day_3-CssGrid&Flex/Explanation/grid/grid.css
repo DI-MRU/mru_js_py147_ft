@@ -36,16 +36,24 @@ body {
 }
 /* End of basic css */
 .container {
+  display: grid;
+  grid-template-columns: repeat(auto, 100px);
+  grid-template-rows: repeat(4, 100px);
+  grid-template-areas:
+    ". . . item_3"
+    "item_2 . . ."
+    "item_1 item_1 item_1 item_1"
+    "item_1 item_1 item_1 item_1";
 }
 
 .item_1 {
+  grid-area: item_1;
 }
 
 .item_2 {
+  grid-area: item_2;
 }
 
 .item_3 {
-}
-
-.item_1 {
+  grid-area: item_3;
 }

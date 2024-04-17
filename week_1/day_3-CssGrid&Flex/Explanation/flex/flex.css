@@ -10,7 +10,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  
 }
 
 .container {
@@ -37,12 +36,16 @@ body {
 
 /* Flex Explanation */
 .container {
+  display: flex;
 }
 
 .item_1 {
+  
 }
 
 .item_2 {
+    flex:1;
 }
 .item_3 {
+    flex: 1;
 }
