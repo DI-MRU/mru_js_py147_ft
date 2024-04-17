@@ -37,7 +37,7 @@ body {
 /* End of basic css */
 .container {
   display: grid;
-  grid-template-columns: repeat(auto, 100px);
+  grid-template-columns: repeat(4, 100px);
   grid-template-rows: repeat(4, 100px);
   grid-template-areas:
     ". . . item_3"
@@ -48,6 +48,21 @@ body {
 
 .item_1 {
   grid-area: item_1;
+  /* grid-row-start: 3; */
+  /* grid-column-start: 1; */
+  /* grid-row-end: 5; */
+  /* grid-column-end: 4; */
+
+  /* seperated by / */
+  /* grid-column: 1 / 4; */
+  /* grid-row: 3 / 5; */
+
+  /* span works as taking the space of the next element */
+  /* grid-column: 1 / span 3; */
+  /* grid-row: 3 / span 2; */
+
+  /*  row-start, column-start, row-end, column-end */
+  /* grid-area: 1/1/5/4; */
 }
 
 .item_2 {

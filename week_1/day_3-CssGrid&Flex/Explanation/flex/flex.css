@@ -37,15 +37,36 @@ body {
 /* Flex Explanation */
 .container {
   display: flex;
+
+  /* moves along main axis */
+  /* justify-content: space-between; */
+
+  /* moves along cross axis */
+  /* align-items: center; */
+
+  /* wrap the items */
+  /* flex-wrap: wrap; */
+  /* align content is available only when flex-wrap is wrap */
+  /* align-content: space-between; */
 }
 
 .item_1 {
-  
+  /* if we want to take more space */
+  /* flex: 2; */
+
+  /* flex-grow: 1; */
+  /* flex-shrink: 1; */
+  /* flex-basis: 200px; */
+
+  /* align self to move along cross axis */
+  /* align-self: flex-end; */
+
+  /* order: -1; */
 }
 
 .item_2 {
-    flex:1;
+  flex: 1;
 }
 .item_3 {
-    flex: 1;
+  flex: 1;
 }
