@@ -1,0 +1,12 @@
+.parent {
+    position: relative;
+    height: 200vh;
+}
+.child-1 {
+  position: sticky;
+  top: 0;
+}
+.child-2 {
+}
+.child-3 {
+}

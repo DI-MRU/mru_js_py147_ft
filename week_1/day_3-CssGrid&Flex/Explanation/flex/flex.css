@@ -1,0 +1,47 @@
+/* Basic CSS */
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  word-spacing: 1.5px;
+  font-family: sans-serif;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 70%;
+  height: 500px;
+  margin: 0 auto;
+  border: 10px solid black;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  padding: 1em;
+  font-weight: 700;
+  color: aqua;
+  text-align: center;
+  border: 10px solid cadetblue;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* End of basic CSS */
+
+/* Flex Explanation */
+.container {
+}
+
+.item_1 {
+}
+
+.item_2 {
+}
+.item_3 {
+}
