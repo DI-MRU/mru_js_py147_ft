@@ -67,6 +67,7 @@ body {
 
 .item_2 {
   grid-area: item_2;
+  z-index: 1;
 }
 
 .item_3 {
