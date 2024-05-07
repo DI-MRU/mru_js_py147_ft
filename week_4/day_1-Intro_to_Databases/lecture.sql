@@ -56,3 +56,16 @@ SELECT * FROM actors
 ORDER BY actor_id ASC
 LIMIT 30
 OFFSET 20;
+
+-- UPDATE actors
+-- SET first_name = 'Maty'
+-- WHERE actor_id = 1;
+-- UPDATE actors
+-- SET
+--     number_oscars = 4
+-- WHERE
+--     actor_id = 1 RETURNING *;
+
+-- ALTER TABLE actors RENAME COLUMN age TO birthdate
+SELECT * FROM actors;
+-- DELETE FROM actors WHERE actor_id = 10;
