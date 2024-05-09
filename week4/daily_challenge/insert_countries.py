@@ -56,3 +56,10 @@ print(obj)
 
 # SOLID Principles
 # Single Responsibility
+
+
+# OOP usage of Country
+class Country:
+    name, capital, flag, subregion, population = None, None, None, None, None
+    def __init__(self) -> None:
+        pass
