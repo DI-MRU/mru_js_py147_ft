@@ -47,3 +47,9 @@ Example using a table with employees:
 - A is the top manager
 - B and C are direct reports of A
 - D and E are direct reports of B
+
+## Through relationships
+
+- A has a direct report B
+- B has a direct report D
+- A has a direct report D
