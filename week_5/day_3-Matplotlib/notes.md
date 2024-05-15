@@ -16,3 +16,8 @@
 2. Run the command `source venv/bin/activate`
 3. Run your python file using `python file_name.py`
 4. Deactivate the virtual environment by running `deactivate`
+
+## Use requirements.text for this venv
+
+1. Run the command `pip freeze > requirements.txt`
+2. To install the packages from the requirements.txt file, run the command `pip install -r requirements.txt`
