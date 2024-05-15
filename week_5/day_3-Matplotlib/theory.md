@@ -27,3 +27,23 @@ plt.title('Histogram')
 plt.show()
 
 ```
+
+## Error Bars
+
+What are error bars?
+
+Error bars are graphical representations of the variability of data and used on graphs to indicate the error or uncertainty in a reported measurement.
+
+A real life example:
+
+Imagine you have a dataset of the heights of students in a class. You can create a bar chart with error bars to show the average height and the variability in height among students.
+
+## Twin Axes
+
+What are twin axes?
+
+Twin axes are two separate axes that share the same x-axis but have different y-axes. They are used to compare two different datasets with different scales on the same graph.
+
+A real life example:
+
+Imagine you have two datasets, one for temperature and one for humidity. You can create a line chart with twin axes to show the relationship between temperature and humidity over time.
