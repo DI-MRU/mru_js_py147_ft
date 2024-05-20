@@ -1,0 +1,6 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Pets</h1>
+{% for pet in pets %}
+<div>{{pet.age}}</div>
+{% endfor %} 
+{% endblock %}
