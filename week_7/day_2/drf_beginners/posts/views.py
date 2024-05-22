@@ -1,44 +1,42 @@
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse, JsonResponse
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
-from week_7.day_2.drf_beginners.posts.serializers import PostSerializer
-from week_7.day_2.drf_beginners.posts.serializers import Post
+from .models import Post
+from .serializers import PostSerializer
+from rest_framework import permissions
 
-@csrf_exempt
+@api_view(["GET", "POST"])
+@permission_classes((permissions.AllowAny,))
 def post_view(request):
-    # api/get/
     if request.method == "GET":
-        queryset = Post.objects.all()
-        serializer = PostSerializer(queryset, many=True)
-        return JsonResponse(data=serializer.data, safe=False)
+        posts = Post.objects.all()
+        serializer = PostSerializer(posts, many=True)
+        return Response(serializer.data)
 
-    # api/post/ body {}
     if request.method == "POST":
-        article_data = JSONParser.parse(request)
-        serializer = PostSerializer(data=article_data)
+        serializer = PostSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JSONParser(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
-
-@csrf_exempt
-def post_detail(request, article_pk):
-    # api/article/1
-    try
-        article = Post.objects.get(pk=article_pk)
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+    
+def post_detail_view(request, pk):
+    try:
+        post = Post.objects.get(pk=pk)
     except Post.DoesNotExist:
-        return HttpResponse(status=404)
+        return Response(status=404)
 
-    if request.method == 'GET':
-        serializer = PostSerializer(article)
-        return JsonResponse(data=serializer.data)
-    elif request.method == 'PUT':
-        new_article = JSONParser(request)
-        serializer = PostSerializer(article, data=new_article)
+    if request.method == "GET":
+        serializer = PostSerializer(post)
+        return Response(serializer.data)
+
+    if request.method == "PUT":
+        serializer = PostSerializer(post, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data)
-        return JsonResponse(serializer.error, status=400)
-    elif request.method == 'DELETE':
-        article().delete()
-        return HttpResponse(status=204)
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
+
+    if request.method == "DELETE":
+        post.delete()
+        return Response(status=204)

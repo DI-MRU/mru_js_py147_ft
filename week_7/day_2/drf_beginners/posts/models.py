@@ -6,7 +6,6 @@ CATEGORY_CHOICES = (
 )
 
 class Post(models.Model):
-
    title = models.CharField(max_length=100)
    custom_id = models.IntegerField()
    category = models.CharField(max_length=3, choices=CATEGORY_CHOICES)
