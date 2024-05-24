@@ -11,3 +11,17 @@ function sumNumbers() {
 }
 
 console.log(sumNumbers());
+
+// var , let ,const
+
+const value = 10;
+// value = 20; // error
+
+// let value2 = 10;
+value2 = 20; // no error
+
+let value2 = 30; // error
+
+var value3 = 10;
+value3 = 20;
+
