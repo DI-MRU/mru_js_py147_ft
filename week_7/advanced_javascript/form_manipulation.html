@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <input type="text" onchange="alert(this.value)">
+        <br>
+        <br>
+        <input type="text" id="myinput"> ONINPUT <span id="result"></span>
+    </div>
+</body>
+
+<script>
+    let newInput =  document.getElementById('myinput')
+    newInput.oninput = function() {
+        result.innerHTML = newInput.value;
+    };
+</script>
+</html>
