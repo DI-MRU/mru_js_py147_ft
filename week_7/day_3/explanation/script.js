@@ -1,120 +1,150 @@
-// const Checkyear = (year) => {
-//     if (year === 2000 ? 'You are in the 21st century' : 'You live in the Middle Age');
-// }
-
-// console.log(Checkyear(2000));
-
+// Code Explanation
 const Checkyear = (year) => {
+  // Check if the year is 2000
   return year === 2000
-    ? "You are in the 21st century"
-    : "You live in the Middle Age";
+    ? "You are in the 21st century" // If the year is 2000, return this message
+    : "You live in the Middle Age"; // If the year is not 2000, return this message
 };
 
-console.log(Checkyear(2000));
+console.log(Checkyear(2000)); // "You are in the 21st century"
 
-// var a = 5;
-// var b = 10;
-// console.log(`Fifteen is ${a + b} and not ${2 * a + b}.`);
 
-// function numbers() {
-//     for (var i = 0; i < 5; i += 1) {
-//       console.log(i);
-//     }
-//       console.log(i);
-//   }
-//   numbers();
-
-function myFunc(x, y) {
-  return x + y;
+// this is a normal function
+function Name(name) {
+  console.log(name);
 }
 
-console.log(myFunc(2, 9));
+Name("tushil");
 
-const myFunc1 = (x, y) => {
-  return x + y;
+// this is an arrow function
+const LastName = (lastName) => {
+  console.log(lastName);
 };
 
-console.log(myFunc1(6, 7));
+LastName("Gunness");
 
-const show = (x) => x * 2;
+const show = (x, y) => x + y;
 
-console.log(show(2));
+console.log(show(1, 2));
 
-const Capitalize = (str) => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
+let username = "john"; // j          //J         //John
+const changeUsername = () =>
+  username.charAt(0).toUpperCase() + username.slice(1);
+console.log(changeUsername()); // "John"
 
-console.log(Capitalize("hello"));
 
-const calculate = (num1, num2, operator) => {
-  return operator === "+"
-    ? num1 + num2
-    : operator === "-"
+//Function to calculate the sum of two numbers
+const calculator = (num1, num2, operator = "+") => {
+  // Check the operator and return the result
+  return operator === "+" // if operator is +, return the sum of the two numbers
+    ? num1 + num2 
+    : operator === "-" // if operator is -, return the difference of the two numbers
     ? num1 - num2
-    : operator === "*"
+    : operator === "*" // if operator is *, return the product of the two numbers
     ? num1 * num2
-    : operator === "/"
-    ? num1 / num2
-    : "Invalid operator";
+    : "Wrong Operator"; // if the operator is not +, -, or *, return this message
 };
 
-console.log(calculate(2, 3, "+"));
+console.log(calculator(1, 20));
 
-(function (name) {
-    console.log("Hello " + name);
-})("Sarah")
+const hummus = function(factor) {
+  // Function to calculate the amount of ingredients needed
+  const ingredient = function(amount, unit, name) {
+      let ingredientAmount = amount * factor;
+      if (ingredientAmount > 1) {
+          unit += "s";
+      }
+      console.log(`${ingredientAmount} ${unit} ${name}`);
+  };
+  // Call the ingredient function with the amount of each ingredient needed
+  ingredient(1, "can", "chickpeas");
+  ingredient(0.25, "cup", "tahini");
+  ingredient(0.25, "cup", "lemon juice");
+  ingredient(1, "clove", "garlic");
+  ingredient(2, "tablespoon", "olive oil");
+  ingredient(0.5, "teaspoon", "cumin");
+};
+// Call the hummus function with the factor 2
+hummus(2)
 
-function addSquares(a, b) {
-    function square(x) {
-      return x * x;
-    }
-    return square(a) + square(b);
+let add = (function () {
+  let counter = 0;
+  function calculus() {
+    counter += 1;
+    return counter;
   }
+  return calculus;
+})();
 
-console.log(addSquares(2, 3));
+add();
+add();
+console.log(add()); // return 3
 
-function outside(x) {
-    function inside(y) {
-      return x + y;
-    }
-    return inside;
-  }
-  
-  let fnInside = outside(3);
-  console.log(fnInside) 
-  // function inside(y) {
-  //    return x + y;
-  //  }
-  console.dir(fnInside) 
-  // Closure (outside) x: 3
-  
-  let result = fnInside(5); // The same as calling outside(3)(5)
-  console.log(result) // returns 8
-
-  let add = (function () {
-    let counter = 0;
-    function calculus() {
-        counter += 1; 
-        return counter
-    }
-    return calculus
-  })();
-  
-  add();
-  add();
-  add();
-  console.log(add()); // returns 4
-
-  const g = n => n + 1;
+// Function to calculate the sum of two numbers
+const g = n => n + 1;
 const f = n => n * 2;
 
 const h = x => f(g(x));
 
 console.log(h(20)); // 42
 
+// what is the output of the following code? Hey! or Hello? Answer: Hello
+// Explanation: The variable c is an object with a property greeting set to "Hey!". The variable d is assigned to c, which means that d is a reference to the object c. When the greeting property of c is changed to "Hello", the value of d.greeting is also changed to "Hello".
 let c = { greeting: 'Hey!' };
 let d;
 
 d = c;
 c.greeting = 'Hello';
 console.log(d.greeting);
+
+
+//currying
+const multiply = (n, m) => n * m;
+multiply(3, 4) === 12; // true
+
+const curryedMultiply = (n) => (m) => multiply(n, m);
+console.log(curryedMultiply(3)(2));
+
+
+// is object1 equal to object2? Answer: true 
+// is object1 equal to object3? Answer: false because object3 is a new object
+let object1 = { value: 10 };
+let object2 = object1;
+let object3 = { value: 10 };
+
+console.log(object1 == object2);
+// → true
+console.log(object1 == object3);
+// → false
+
+object1.value = 10;
+console.log(object2.value); // 10
+console.log(object3.value); // 10
+
+// object1.value and object2.value are equal because object2 is a reference to object1. object3 is a new object with the same value as object1, but it is not the same object. Therefore, object1.value and object3.value are not equal.
+console.log(object1.value === object3.value); // true
+
+
+// Object
+let user = {
+  name: 'Tushil',
+  age: 21
+}
+
+// Accessing object properties using dot notation
+console.log(user.name)
+
+
+// Object constructor
+let user2 = new Object()
+user2.name = 'Tushil_1'
+user2.age = 21
+
+// Accessing object properties using bracket notation
+console.log(user2['name'])
+
+
+let users = 'Tushil'
+// Check if the string contains the word 
+console.log(users.includes('t')) // false
+console.log(users.includes('T')) // true
