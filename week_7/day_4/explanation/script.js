@@ -119,7 +119,7 @@ let sum = arr.reduce((acc, val) => {
   console.log(`val: ${val}`); // 4, 9, 16, 25
   console.log(`acc + val: ${acc + val}`); // 5, 14, 30, 55
   return acc + val;
-});
+}, 0); // 0 is the initial value of the accumulator
 
 console.log(sum); // 30
 
@@ -165,3 +165,37 @@ console.log(word.startsWith("H")); // true
 
 let bottle = "bottle";
 console.log(bottle.replace(/[t]/g, "z")); // 'bozzle'
+
+
+// new way of writing functions
+function calculate(num1, num2, operator) {
+  if (operator === "+") {
+    return num1 + num2;
+  } else if (operator === "-") {
+    return num1 - num2;
+  } else if (operator === "*") {
+    return num1 * num2;
+  } else if (operator === "/") {
+    return num1 / num2;
+  } else {
+    return "invalid";
+  }
+}
+
+console.log(calculate(2, 3, "+")); // 5
+
+
+// arrow function
+const calculate1 = (num1, num2, operator) => {
+  return operator === "+"
+    ? num1 + num2
+    : operator === "-"
+    ? num1 - num2
+    : operator === "*"
+    ? num1 * num2
+    : operator === "/"
+    ? num1 / num2
+    : "invalid";
+};
+
+console.log(calculate1(4, 2, "-")); // 2
