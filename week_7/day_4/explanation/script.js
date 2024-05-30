@@ -152,10 +152,16 @@ let totalCalories = party.reduce((acc, val) => {
 
 console.log(totalCalories); // 85
 
-
 let prices = [12, 20, 18];
 let newPriceArray = [...prices];
 console.log(newPriceArray); // [ 12, 20, 18 ]
 
 let alphabets = ["A", ..."BCD", "E"];
 console.log(alphabets); // [ 'A', 'B', 'C', 'D', 'E' ]
+
+let word = "Hello";
+console.log(word.includes("e")); // true
+console.log(word.startsWith("H")); // true
+
+let bottle = "bottle";
+console.log(bottle.replace(/[t]/g, "z")); // 'bozzle'
