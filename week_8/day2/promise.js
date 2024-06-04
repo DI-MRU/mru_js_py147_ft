@@ -1,5 +1,6 @@
-const todos = fetch("https://jsonplaceholder.typicode.com/todos");
+const todos = fetch("https://jsonplaceholder.typicode.com/users");
 
-console.log(todos);
+// do something else here
 
-console.log("test");
+// then response.json()
+todos.then((response) => response.json()).then((data) => console.log(data));
