@@ -23,6 +23,11 @@ function getPerson() {
 
       // Hide the loading spinner
       loading.style.display = "none";
+    })
+    .catch((error) => {
+      console.error(error);
+      container.innerHTML = `<p>Failed to load data. Please try again.</p>`;
+      loading.style.display = "none";
     });
 }
 
