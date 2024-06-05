@@ -145,10 +145,8 @@ Another real world example using multiple fetch requests:
 
 ```js
 
-const promise1 = fetch('https://json
-placeholder.typicode.com/todos/1'); // pending
-const promise2 = fetch('https://json
-placeholder.typicode.com/todos/2'); // pending
+const promise1 = fetch('https://jsonplaceholder.typicode.com/todos/1'); // pending
+const promise2 = fetch('https://jsonplaceholder.typicode.com/todos/2'); // pending
 
 promise1
   .then(response => response.json())
