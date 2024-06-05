@@ -1,3 +1,6 @@
+const robotsContainer = document.getElementById("robots-container");
+const search = document.getElementById("search");
+
 const robots = [
   {
     id: 1,
@@ -71,24 +74,59 @@ const robots = [
   },
 ];
 
-// Write your code here
-document.addEventListener("DOMContentLoaded", () => {
-  const robotsContainer = document.getElementById("robots-container");
-  const searchInput = document.getElementById("searchbar");
+// Display all robots
+function displayRobots() {
+  // Clear the container
+  robotsContainer.innerHTML = "";
+  // Loop through the robots array and display each robot
+  robots.forEach((robot) => {
+    // Create a div element for each robot
+    const robotCard = document.createElement("div");
+    robotCard.id = "robot-card";
+    robotCard.innerHTML = `
+        <img src="${robot.image}" alt="${robot.name}" />
+        <h2>${robot.name}</h2>
+        <p>${robot.username}</p>
+        <p>${robot.email}</p>
+      `;
+    robotsContainer.appendChild(robotCard);
+  });
+}
 
-  const displayRobots = (robots) => {
-    robotsContainer.innerHTML = "";
-    robots.forEach((robot) => {
-      const robotcards = document.createElement("div");
-      robotcards.classList.add("robot-card");
-      robotcards.innerHTML = `
-          <img src="${robot.image}" alt="${robot.name}">
-          <h2>${robot.name}</h2>
-          <p>${robot.username}</p>
-          <p>${robot.email}</p>
-          `;
-      robotsContainer.appendChild(robotcards);
-    });
-    displayRobots(robots);
-  };
+displayRobots();
+
+// Filter robots based on the search input
+search.addEventListener("input", () => {
+  const searchValue = search.value.toLowerCase();
+  const filteredRobots = robots.filter((robot) => {
+    return robot.name.toLowerCase().includes(searchValue);
+  });
+  robotsContainer.innerHTML = "";
+  
+  // the use of forEach method to loop through the filteredRobots array
+  // filteredRobots.forEach((robot) => {
+  //   const robotCard = document.createElement("div");
+  //   robotCard.id = "robot-card";
+  //   robotCard.innerHTML = `
+  //       <img src="${robot.image}" alt="${robot.name}" />
+  //       <h2>${robot.name}</h2>
+  //       <p>${robot.username}</p>
+  //       <p>${robot.email}</p>
+  //     `;
+
+
+  // normal loop
+  for (let i = 0; i < filteredRobots.length; i++) {
+    const robot = filteredRobots[i];
+    const robotCard = document.createElement("div");
+    robotCard.id = "robot-card";
+    robotCard.innerHTML = `
+        <img src="${robot.image}" alt="${robot.name}" />
+        <h2>${robot.name}</h2>
+        <p>${robot.username}</p>
+        <p>${robot.email}</p>
+      `;
+
+    robotsContainer.appendChild(robotCard);
+  }
 });
