@@ -99,10 +99,14 @@ displayRobots();
 search.addEventListener("input", () => {
   const searchValue = search.value.toLowerCase();
   const filteredRobots = robots.filter((robot) => {
-    return robot.name.toLowerCase().includes(searchValue);
+    return (
+      robot.name.toLowerCase().includes(searchValue) ||
+      robot.username.toLowerCase().includes(searchValue) ||
+      robot.email.toLowerCase().includes(searchValue)
+    );
   });
   robotsContainer.innerHTML = "";
-  
+
   // the use of forEach method to loop through the filteredRobots array
   // filteredRobots.forEach((robot) => {
   //   const robotCard = document.createElement("div");
@@ -113,7 +117,6 @@ search.addEventListener("input", () => {
   //       <p>${robot.username}</p>
   //       <p>${robot.email}</p>
   //     `;
-
 
   // normal loop
   for (let i = 0; i < filteredRobots.length; i++) {
