@@ -1,0 +1,20 @@
+<person>
+    <firstName>Jane</firstName>
+    <lastName>Doe</lastName>
+    <hobbies>
+        <hobby>running</hobby>
+        <hobby>sky diving</hobby>
+        <hobby>singing</hobby>
+    </hobbies>
+    <age>35</age>
+    <children>
+        <child>
+            <firstName>Alice</firstName>
+            <age>6</age>
+        </child>
+        <child>
+            <firstName>Bob</firstName>
+            <age>8</age>
+        </child>
+    </children>
+</person>
