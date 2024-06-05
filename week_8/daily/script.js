@@ -43,7 +43,6 @@ videoArray.forEach((video) => {
   console.log(video.watch());
 });
 
-
 // normal for loop
 for (let i = 0; i < Array.length; i++) {
   const { title, uploader, time } = Array[i];
@@ -57,11 +56,11 @@ for (let i = 0; i < videoArray.length; i++) {
 
 // array of objects
 const Array2 = [
-    new Video("Run", "Forest", "Run"),
-    new Video("Mama", "Mia", "Here we go again"),
-    new Video("Run", "Forest", "Run"),
-    new Video("Mama", "Mia", "Here we go again"),
-    new Video("Run", "Forest", "Run"),
+  new Video("Run", "Forest", "Run"),
+  new Video("Mama", "Mia", "Here we go again"),
+  new Video("Run", "Forest", "Run"),
+  new Video("Mama", "Mia", "Here we go again"),
+  new Video("Run", "Forest", "Run"),
 ];
 
 console.log(Array2); // Video { title: 'Run', uploader: 'Forest', title: 'Run' }
@@ -72,6 +71,46 @@ Array2.forEach((video) => {
 });
 
 // normal for loop and call the watch method
-for ( let i = 0; i < Array2.length; i++) {
-    console.log(Array2[i].watch());
+for (let i = 0; i < Array2.length; i++) {
+  console.log(Array2[i].watch());
 }
+
+// promise test
+let test = false;
+
+const promise = new Promise((resolve, reject) => {
+  if (test) {
+    setTimeout(() => {
+      resolve("done");
+    }, 2000);
+  } else {
+    reject("error");
+  }
+});
+
+promise.then((value) => {
+  console.log(value);
+});
+
+promise.catch((error) => {
+  console.log(error);
+});
+
+promise.finally(() => {
+  console.log("finally");
+});
+
+// async await example with another code without promise
+
+const fetchData = async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = await response.json();
+    const firstvalue = data[0];
+    console.log(firstvalue);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+fetchData();
