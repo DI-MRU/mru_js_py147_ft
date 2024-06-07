@@ -27,7 +27,7 @@ Minimum feat :
 # Banking System 
 ## Front ==Bhavna==
 Minimum feat :
-- Welcome page - Total (3 hr) + extra 30 min
+- Welcome page - Total (4 hr) + extra 30 min
 	- Login page - 1 hr 30
 	- Sign page - 1 hr 30
 	- Contact page - 1 hr
