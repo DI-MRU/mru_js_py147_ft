@@ -1,16 +1,38 @@
 const express = require("express");
 const app = express();
 
-// set the view engine to ejs
-// sets EJS as the view engine for the Express application
 app.set("view engine", "ejs");
 
+let menu = [
+  {
+    name: "Margarita",
+    price: 10,
+    ingredients: ["Tomato Sauce", "Mozzarella", "Basil"],
+  },
+  {
+    name: "Bianca",
+    price: 13,
+    ingredients: ["Ricotta", "Mozzarella", "Garlic"],
+  },
+  {
+    name: "Etna",
+    price: 14,
+    ingredients: [
+      "Tomato sauce",
+      "Mozzarella",
+      "Anchovies",
+      "Capers",
+      "Olives",
+    ],
+  },
+];
+
 app.get("/", (req, res) => {
-  // The render method takes the name of the HTML
-  // page to be rendered as input
-  // This page should be in the views folder
-  // in the root directory.
-  res.render("home"); //renders the home.ejs file
+  res.render("index", { nameRestaurant: "Papa Pizza", pizzaMenu: menu });
+});
+
+app.get("/about", (req, res) => {
+  res.render("about");
 });
 
 app.listen(3000, () => console.log("Example app listening on port 3000!"));
