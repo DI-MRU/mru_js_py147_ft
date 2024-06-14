@@ -55,11 +55,12 @@ app.put("/:id", (req, res) => {
 app.delete("/:id", (req, res) => {
   const id = req.params.id;
   const index = data.findIndex((username) => username.id == id);
-  if (index != -1) {
+  if (index > -1) {
     data.splice(index, 1);
     res.send({ message: "successful" });
+  } else {
+    res.send({ message: "username not found" });
   }
-  res.send({ message: "username not found" });
 });
 
 //  Post
