@@ -1,11 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 // Create an express application
 const app = express();
 
-// Use the body-parser middleware with the express app
+// Middleware
 app.use(bodyParser.json());
+app.use(cors());
 
 // data array to store the username , password and id
 const data = [];
