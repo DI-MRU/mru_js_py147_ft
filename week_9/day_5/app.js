@@ -22,6 +22,18 @@ app.get("/", function (req, res) {
   }
 });
 
+//  Post
+app.post("/", (req, res) => {
+  const { username, password } = req.body;
+  const id = i++;
+  try {
+    data.push({ id, username, password });
+    res.status(200).send({ message: "successful", data: data });
+  } catch (err) {
+    res.status(500).send({ message: "an error has occured" });
+  }
+});
+
 //get by id
 app.get("/:id", (req, res) => {
   // get the id from the request
@@ -60,18 +72,6 @@ app.delete("/:id", (req, res) => {
     res.send({ message: "successful" });
   } else {
     res.send({ message: "username not found" });
-  }
-});
-
-//  Post
-app.post("/", (req, res) => {
-  const { username, password } = req.body;
-  const id = i++;
-  try {
-    data.push({ id, username, password });
-    res.status(200).send({ message: "successful", data: data });
-  } catch (err) {
-    res.status(500).send({ message: "an error has occured" });
   }
 });
 
