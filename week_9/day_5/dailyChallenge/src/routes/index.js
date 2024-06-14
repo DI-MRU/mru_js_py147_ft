@@ -8,6 +8,7 @@ const deleteTask = require("./task/deleteTask");
 // Create a new router
 const router = express.Router();
 
+// Use the task routes
 router.use("/", getAll);
 router.use("/", getById);
 router.use("/", create);

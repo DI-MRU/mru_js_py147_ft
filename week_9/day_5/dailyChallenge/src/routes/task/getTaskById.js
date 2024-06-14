@@ -5,12 +5,13 @@ const taskPath = require("../../utils/taskPath");
 
 router.get("/:id", (req, res) => {
   const id = req.params.id;
-
+  // Read the tasks.json file
   fs.readFile(taskPath, "utf8", (err, data) => {
     if (err) {
       res.status(500).send({ message: "Internal Server Error" });
     } else {
       const tasks = JSON.parse(data);
+      // Find the task with the given id
       const task = tasks.find((task) => task.id == id);
 
       if (task) {
